@@ -4,15 +4,18 @@ Displays document total number of lines and total selected lines count in the st
 
 ![Extension showing total lines](./img/screenshot-highlight.png)
 
-## Features
+Selected lines count is displayed to the right of total lines, and is hidden if no lines are selected.
 
-Shows the total lines count and selected lines count in the status bar. The text for selected lines is displayed to the right of total lines, and is hidden if no lines are selected.
+![Extension showing total lines in status bar](./img/statusbar-screenshot.png)
 
-Selected lines count works with multiselect.
+![Extension showing total lines in status bar](./img/statusbar-screenshot-empty-selection.png)
 
-You can customize the status bar output in the extensions settings.
+Selected lines count is compatible with multiselect.
+
+You can customize the status bar output format in the extensions settings. E.g.: `Ln %d`
 
 ![Extension settings](./img/settings-screenshot.png)
+
 
 ## Extension Settings
 
@@ -25,6 +28,10 @@ This extension contributes the following settings:
 
 
 ## Release Notes
+
+### 0.0.7
+Improved README.md.
+Added new screenshots.
 
 ### 0.0.4
 Added extension icon.
