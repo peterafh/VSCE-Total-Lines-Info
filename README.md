@@ -1,4 +1,4 @@
-# Total Lines Info README
+# Total Lines Info
 
 Displays document total number of lines and total selected lines count in the status bar.
 
