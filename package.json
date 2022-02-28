@@ -62,7 +62,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://peterfh.visualstudio.com/_git/LinesInfoStatusBar"
+		"url": "https://github.com/peterafh/VSCE-Total-Lines-Info"
 	},
 	"__metadata": {
 		"id": "d921f2a6-7fc2-4937-8441-4dde9ed70628",

@@ -1,8 +1,8 @@
-# linesinfostatusbar README
+# Total Lines Info README
 
 Displays document total number of lines and total selected lines count in the status bar.
 
-![Extension showing total lines](./img/screenshot-4.png)
+![Extension showing total lines](./img/screenshot-highlight.png)
 
 ## Features
 
