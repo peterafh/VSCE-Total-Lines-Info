@@ -1,0 +1,72 @@
+{
+	"name": "linesinfostatusbar",
+	"displayName": "Total Lines Info",
+	"description": "Display total and selected lines count in status bar.",
+	"icon": "img/icon.png",
+	"version": "0.0.4",
+	"publisher": "peterfh",
+	"engines": {
+		"vscode": "^1.12.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./extension",
+	"contributes": {
+		"commands": [],
+		"configuration": {
+			"type": "object",
+			"title": "Total Lines Info",
+			"properties": {
+				"linesinfostatusbar.totalDisplayFormat": {
+					"type": "string",
+					"default": "Líns. %d",
+					"description": "Display format: according to https://nodejs.org/api/util.html#util_util_format_format"
+				},
+				"linesinfostatusbar.selectedDisplayFormat": {
+					"type": "string",
+					"default": " (%d Sel.)",
+					"description": "Display format: according to https://nodejs.org/api/util.html#util_util_format_format"
+				},
+				"linesinfostatusbar.alignment": {
+					"type": "string",
+					"enum": [
+						"left",
+						"right"
+					],
+					"default": "right",
+					"description": "Controls the alignment of the info item in the status bar."
+				},
+				"linesinfostatusbar.statusbarPriority": {
+					"type": "number",
+					"default": 200,
+					"description": "The priority of the selected lines in status bar. Higher values mean the item should be shown more to the left."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"package": "vsce package"
+	},
+	"devDependencies": {
+		"typescript": "^2.0.3",
+		"vscode": "^1.0.0",
+		"mocha": "^2.3.3",
+		"eslint": "^3.6.0",
+		"@types/node": "^6.0.40",
+		"@types/mocha": "^2.2.32"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://peterfh.visualstudio.com/_git/LinesInfoStatusBar"
+	},
+	"__metadata": {
+		"id": "d921f2a6-7fc2-4937-8441-4dde9ed70628",
+		"publisherId": "46f4bf95-c8f0-483c-a8a8-fb16990f9e84",
+		"publisherDisplayName": "Pedro Fernández"
+	}
+}
