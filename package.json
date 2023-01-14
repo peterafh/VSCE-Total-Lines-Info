@@ -44,6 +44,16 @@
 					"type": "number",
 					"default": 200,
 					"description": "The priority of the selected lines in status bar. Higher values mean the item should be shown more to the left."
+				},
+				"linesinfostatusbar.warningAtLineCount": {
+					"type": "number",
+					"default": 0,
+					"description": "Show as warning when lines exceed the given number."
+				},
+				"linesinfostatusbar.errorAtLineCount": {
+					"type": "number",
+					"default": 0,
+					"description": "Show as error when lines exceed the given number."
 				}
 			}
 		}

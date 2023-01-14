@@ -8,7 +8,9 @@ const
 	DEFAULT_TOTALFORMAT = "Líns. %d",
 	DEFAULT_SELECTEDFORMAT = " (%d Sel.)",
 	DEFAULT_ALIGNMENT = "right",
-	DEFAULT_PRIORITY = 200;
+	DEFAULT_PRIORITY = 200,
+	DEFAULT_WARNING_COUNT = 0,
+	DEFAULT_ERROR_COUNT = 0;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 
@@ -37,6 +39,8 @@ class LinesInfoStatusBar {
 		this.statusBarPriority = vscode.workspace.getConfiguration('linesinfostatusbar').statusbarPriority || DEFAULT_PRIORITY;
 		this.totalDisplayFormat = vscode.workspace.getConfiguration('linesinfostatusbar').totalDisplayFormat || DEFAULT_TOTALFORMAT;
 		this.selectedDisplayFormat = vscode.workspace.getConfiguration('linesinfostatusbar').selectedDisplayFormat || DEFAULT_SELECTEDFORMAT;
+		this.warningCount = vscode.workspace.getConfiguration('linesinfostatusbar').warningAtLineCount || DEFAULT_WARNING_COUNT;
+		this.errorCount = vscode.workspace.getConfiguration('linesinfostatusbar').errorAtLineCount || DEFAULT_ERROR_COUNT;
 		this.statusBarItem =  vscode.window.createStatusBarItem(this.getAlignmentEnum(this.alignConfig), this.statusBarPriority);
 	}
 
@@ -50,7 +54,7 @@ class LinesInfoStatusBar {
 
 		if (!editor) {
 			this.hideStatusBarItem();
-			
+
 			return;
 		}
 
@@ -58,13 +62,13 @@ class LinesInfoStatusBar {
 		if (!this.statusBarItem) {
 			this.createExtensionStatusBarItem();
 		}
-				
+
 		// Count total lines
 		let lineCount = editor.document.lineCount;
 
 		// Count selected lines
 		let selectedText = '';
-		
+
 		if (selections) {
 			let selectedCount = 0;
 
@@ -73,7 +77,7 @@ class LinesInfoStatusBar {
 					if (selection.isEmpty) {
 						return previous;
 					}
-					
+
 					// Unary + operator transforms boolean to int
 					return previous + selection.end.line - selection.start.line + ( +(selection.end.character != 0));
 				}, 0); // pre = 0
@@ -81,6 +85,17 @@ class LinesInfoStatusBar {
 				if (selectedCount) {
 					selectedText = util.format(this.selectedDisplayFormat, selectedCount);
 				}
+		}
+
+		// Show warning if setting available
+		this.statusBarItem.backgroundColor = undefined;
+
+		if (this.warningCount > 0 && lineCount > this.warningCount) {
+			this.statusBarItem.backgroundColor = new vscode.ThemeColor('statusBarItem.warningBackground');
+		}
+
+		if (this.errorCount > 0 && lineCount > this.errorCount) {
+			this.statusBarItem.backgroundColor = new vscode.ThemeColor('statusBarItem.errorBackground');
 		}
 
 		// Update the status bar
