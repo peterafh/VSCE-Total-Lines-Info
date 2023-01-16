@@ -21,7 +21,12 @@ class LinesInfoStatusBar {
 		vscode.window.onDidChangeTextEditorSelection(e => e && this.showLinesInfo(e.selections));
 		vscode.window.onDidChangeTextEditorViewColumn(e => e && this.showLinesInfo(e.selections));
 		vscode.workspace.onDidChangeConfiguration(e => {
-			let modified = e.affectsConfiguration('linesinfostatusbar.totalDisplayFormat') || e.affectsConfiguration('linesinfostatusbar.selectedDisplayFormat') || e.affectsConfiguration('linesinfostatusbar.alignment') || e.affectsConfiguration('linesinfostatusbar.statusbarPriority');
+			let modified = e.affectsConfiguration('linesinfostatusbar.totalDisplayFormat')
+				|| e.affectsConfiguration('linesinfostatusbar.selectedDisplayFormat')
+				|| e.affectsConfiguration('linesinfostatusbar.alignment')
+				|| e.affectsConfiguration('linesinfostatusbar.statusbarPriority')
+				|| e.affectsConfiguration('linesinfostatusbar.warningAtLineCount')
+				|| e.affectsConfiguration('linesinfostatusbar.errorAtLineCount');
 
 			if (modified) {
 				this.hideStatusBarItem();
