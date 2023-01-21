@@ -34,6 +34,12 @@ This extension contributes the following settings:
 
 ## Release Notes
 
+### 0.0.9
+Fix:
+- VSCode needs to be restarted for settings in Error and Warning line count to be effective.
+(Fixed by akshit-arora)
+Refactor code to improve performance.
+
 ### 0.0.8
 Show error/warning background when lines of code exceeds set limit. (By akshit-arora)
 

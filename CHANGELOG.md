@@ -5,6 +5,20 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Release Notes
 
+
+### 0.0.9
+Fix:
+- VSCode needs to be restarted for settings in Error and Warning line count to be effective.
+(Fixed by akshit-arora)
+Refactor code to improve performance.
+
+### 0.0.8
+Show error/warning background when lines of code exceeds set limit. (By akshit-arora)
+
+### 0.0.7
+Improved README.md.
+Added new screenshots.
+
 ### 0.0.4
 Added extension icon.
 Added preview image.
