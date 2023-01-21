@@ -47,6 +47,8 @@ class LinesInfoStatusBar {
 		this.warningCount = vscode.workspace.getConfiguration('linesinfostatusbar').warningAtLineCount || DEFAULT_WARNING_COUNT;
 		this.errorCount = vscode.workspace.getConfiguration('linesinfostatusbar').errorAtLineCount || DEFAULT_ERROR_COUNT;
 		this.statusBarItem =  vscode.window.createStatusBarItem(this.getAlignmentEnum(this.alignConfig), this.statusBarPriority);
+
+		this.affectsStatusBarStyle = this.errorCount > 0 || this.warningCount > 0;
 	}
 
 	hideStatusBarItem() {
@@ -92,15 +94,15 @@ class LinesInfoStatusBar {
 				}
 		}
 
-		// Show warning if setting available
-		this.statusBarItem.backgroundColor = undefined;
-
-		if (this.warningCount > 0 && lineCount > this.warningCount) {
-			this.statusBarItem.backgroundColor = new vscode.ThemeColor('statusBarItem.warningBackground');
-		}
-
-		if (this.errorCount > 0 && lineCount > this.errorCount) {
-			this.statusBarItem.backgroundColor = new vscode.ThemeColor('statusBarItem.errorBackground');
+		if (this.affectsStatusBarStyle) {
+			// Show warning/error if setting available
+			if (this.errorCount > 0 && lineCount > this.errorCount) {
+				this.statusBarItem.backgroundColor = new vscode.ThemeColor('statusBarItem.errorBackground');
+			} else if (this.warningCount > 0 && lineCount > this.warningCount) {
+				this.statusBarItem.backgroundColor = new vscode.ThemeColor('statusBarItem.warningBackground');
+			} else {
+				this.statusBarItem.backgroundColor = undefined;
+			}
 		}
 
 		// Update the status bar
