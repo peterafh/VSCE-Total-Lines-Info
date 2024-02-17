@@ -3,7 +3,7 @@
 	"displayName": "Total Lines Info",
 	"description": "Display total and selected lines count in status bar.",
 	"icon": "img/icon.png",
-	"version": "0.1",
+	"version": "0.1.0",
 	"publisher": "peterfh",
 	"engines": {
 		"vscode": "^1.12.0"

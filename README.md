@@ -34,7 +34,7 @@ This extension contributes the following settings:
 
 ## Release Notes
 
-### 0.1
+### 0.1.0
 Improve usabilility and performance. Contributed by Nuri Jung (jnooree).
 - Specifies `extensionKind` to prefer running at local extension host, so users don't have to reinstall the extension every time connecting to a remote host.
 - Change `activationEvents` to `onStartupFinished` for better startup performance.
