@@ -8,11 +8,15 @@
 	"engines": {
 		"vscode": "^1.12.0"
 	},
+	"extensionKind": [
+		"ui",
+		"workspace"
+	],
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
-		"*"
+		"onStartupFinished"
 	],
 	"main": "./extension",
 	"contributes": {
