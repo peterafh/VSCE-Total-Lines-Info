@@ -5,15 +5,18 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Release Notes
 
+### 0.1
+Improve usabilility and performance. Contributed by Nuri Jung (jnooree).
+- Specifies `extensionKind` to prefer running at local extension host, so users don't have to reinstall the extension every time connecting to a remote host.
+- Change `activationEvents` to `onStartupFinished` for better startup performance.
 
 ### 0.0.9
 Refactor code to improve performance.
 Fix:
-- VSCode needs to be restarted for settings in Error and Warning line count to be effective.
-(Fixed by akshit-arora)
+- VSCode needs to be restarted for settings in Error and Warning line count to be effective. Contributed by Akshit Arora (akshit-arora).
 
 ### 0.0.8
-Show error/warning background when lines of code exceeds set limit. (By akshit-arora)
+Show error/warning background when lines of code exceeds set limit. Contributed by Akshit Arora (akshit-arora).
 
 ### 0.0.7
 Improved README.md.
