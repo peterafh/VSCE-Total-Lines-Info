@@ -5,6 +5,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Release Notes
 
+### 0.1.2
+If `totalDisplayFormat` is empty, the number of selected lines is hidden.
+Updated npm package dependencies.
+
 ### 0.1.1
 Keep release notes only in CHANGELOG.md.
 Make extension compatible with MIT license.
