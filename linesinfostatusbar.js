@@ -42,7 +42,7 @@ class LinesInfoStatusBar {
 	createExtensionStatusBarItem() {
 		this.alignConfig = vscode.workspace.getConfiguration('linesinfostatusbar').alignment || DEFAULT_ALIGNMENT;
 		this.statusBarPriority = vscode.workspace.getConfiguration('linesinfostatusbar').statusbarPriority || DEFAULT_PRIORITY;
-		this.totalDisplayFormat = vscode.workspace.getConfiguration('linesinfostatusbar').totalDisplayFormat || DEFAULT_TOTALFORMAT;
+		this.totalDisplayFormat = vscode.workspace.getConfiguration('linesinfostatusbar').totalDisplayFormat;
 		this.selectedDisplayFormat = vscode.workspace.getConfiguration('linesinfostatusbar').selectedDisplayFormat || DEFAULT_SELECTEDFORMAT;
 		this.warningCount = vscode.workspace.getConfiguration('linesinfostatusbar').warningAtLineCount || DEFAULT_WARNING_COUNT;
 		this.errorCount = vscode.workspace.getConfiguration('linesinfostatusbar').errorAtLineCount || DEFAULT_ERROR_COUNT;
@@ -105,8 +105,10 @@ class LinesInfoStatusBar {
 			}
 		}
 
+		let totalLinesText = this.totalDisplayFormat ? util.format(this.totalDisplayFormat, lineCount) : '';
+
 		// Update the status bar
-		this.statusBarItem.text = util.format(this.totalDisplayFormat, lineCount) + selectedText;
+		this.statusBarItem.text = totalLinesText + selectedText;
 		this.statusBarItem.show();
 	}
 
