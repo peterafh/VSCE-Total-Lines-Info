@@ -5,6 +5,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Release Notes
 
+### 0.1.3
+Updated npm package dependency.
+
 ### 0.1.2
 If `totalDisplayFormat` is empty, the number of selected lines is hidden.
 Updated npm package dependencies.
