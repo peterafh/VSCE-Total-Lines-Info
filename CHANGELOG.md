@@ -5,6 +5,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Release Notes
 
+### 0.1.4
+Updated npm package dependencies.
+
 ### 0.1.3
 Updated npm package dependency.
 
